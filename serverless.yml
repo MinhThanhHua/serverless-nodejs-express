@@ -1,0 +1,21 @@
+service: first
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: us-east-1
+  memorySize: 128
+plugins:
+  - serverless-offline
+functions:
+  test:
+    handler: src/app.server
+    events: 
+      - http: 
+          path: /
+          method: ANY
+          cors: true
+      - http: 
+          path: /{proxy+}
+          method: ANY
+          cors: true
