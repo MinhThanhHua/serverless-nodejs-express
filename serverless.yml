@@ -6,7 +6,7 @@ provider:
   region: us-east-1
   memorySize: 128
   environment: 
-    MY_SECRET: ${file(./src/config/env.${self:provider.stage}.json):CREDS}
+    MY_SECRET: ${file(./src/config/environments/env.${self:provider.stage}.json):CREDS}
 plugins:
   - serverless-offline
 functions:

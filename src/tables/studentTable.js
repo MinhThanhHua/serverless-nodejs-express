@@ -1,4 +1,4 @@
-const db = require('../models/mysql');
+const db = require('../config/models/mysql');
 
 var student = {
     getAllStudent: async function(callback) {

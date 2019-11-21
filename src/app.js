@@ -1,13 +1,13 @@
 
+global.constain = require('./config/constants');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const serverless = require('serverless-http');
-global.constain = require('./config/constants');
 
-var router = require('./routes/router');
+var router = require(constain.ROUTES + '/router');
 
 try {
     var app = express();
@@ -30,7 +30,6 @@ try {
     // module.exports = app;
 } catch (error) {
     // Call exceptions.handle with a transport to handle exceptions
-    console.log(error)
     loggers.exceptions.handle(
       new transports.File({ filename: 'exceptions.log' })
     );

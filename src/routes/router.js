@@ -1,6 +1,6 @@
 'use strict';
 
-const Student = require('../controller/StudentController');
+const Student = require(constain.CONTROLLER + '/api/StudentController');
 
 // import Tasks from '../controller/TasksController';
 // import Student from '../controller/StudentController';
