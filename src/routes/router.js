@@ -1,9 +1,8 @@
 'use strict';
 
 const Student = require(constain.CONTROLLER + '/api/StudentController');
-
-// import Tasks from '../controller/TasksController';
-// import Student from '../controller/StudentController';
+// const Tasks = require(constain.CONTROLLER + '/api/TasksController');
+const lineRouter = require(constain.ROUTES + '/lineApi');
 
 module.exports = function(app) {
     // app.route('/tasks')
@@ -26,4 +25,6 @@ module.exports = function(app) {
     
     app.route('/test')
         .get(Student.helloStudent);
+
+    app.use('/line', lineRouter);
 }

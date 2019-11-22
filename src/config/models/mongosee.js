@@ -3,6 +3,10 @@
 import mongoose, { model } from 'mongoose';
 var Schema = mongoose.Schema;
 
+// Create server mongo and database TaskDb
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/TaskDb');
+
 var TarkSchema = new Schema({
     name: {
         type: String,
