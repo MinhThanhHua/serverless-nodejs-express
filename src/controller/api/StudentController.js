@@ -4,7 +4,6 @@ const Student = require(constain.TABLE + '/studentTable');
 
 module.exports = {
     getAllStudents: async(req, res) => {
-        console.log(constain.ROOT)
         let students = Student.getAllStudent(function (data) {
             res.json(data);
         });
