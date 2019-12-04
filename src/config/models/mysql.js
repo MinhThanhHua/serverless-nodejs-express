@@ -5,7 +5,6 @@ const mysql = require('mysql');
 
 console.log('Get connection ...');
 // Get stage env
-
 if (constain.ENVIRONTMENT == 'dev') {
     // COnnect local
     try {

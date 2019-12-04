@@ -14,11 +14,22 @@ functions:
     handler: src/app.server
     events: 
       - http: 
-          path: /
+          path: /api/student
           method: ANY
           cors: true
       - http: 
-          path: /{proxy+}
+          path: /api/student/{proxy+}
+          method: ANY
+          cors: true
+  demo:
+    handler: src/app.server
+    events: 
+      - http: 
+          path: /api/test
+          method: ANY
+          cors: true
+      - http: 
+          path: /demo/{proxy+}
           method: ANY
           cors: true
 
