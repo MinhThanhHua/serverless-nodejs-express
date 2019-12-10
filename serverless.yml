@@ -3,34 +3,36 @@ provider:
   name: aws
   runtime: nodejs8.10
   stage: ${opt:stage, 'dev'}
-  region: us-east-1
+  region: us-east-2
   memorySize: 128
   environment: 
     MY_SECRET: ${file(./src/config/environments/env.${self:provider.stage}.json):CREDS}
+  role: arn:aws:iam::136226649704:role/lambda_basic_execution
 plugins:
   - serverless-offline
 functions:
+  # test:
+  #   handler: src/app.server
+    # events: 
+      # - http: 
+      #     path: /
+      #     method: ANY
+      #     cors: false
+      # - http: 
+      #     path: /{proxy+}
+      #     method: ANY
+      #     cors: false
+  # demo:
+  #   handler: src/app.server
+    # events: 
+    #   - http: 
+    #       path: /api/demo
+    #       method: ANY
+    #       cors: true
+# Cách tách ra, chỉ gọi function, không cần dùng tới http (endpoint), đỡ phải dùng service aws gateway
   test:
-    handler: src/app.server
-    events: 
-      - http: 
-          path: /api/student
-          method: ANY
-          cors: true
-      - http: 
-          path: /api/student/{proxy+}
-          method: ANY
-          cors: true
+    handler: src/handlers/TestController.test
   demo:
-    handler: src/app.server
-    events: 
-      - http: 
-          path: /api/test
-          method: ANY
-          cors: true
-      - http: 
-          path: /demo/{proxy+}
-          method: ANY
-          cors: true
+    handler: src/handlers/TestController.demo
 
           

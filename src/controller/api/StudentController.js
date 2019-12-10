@@ -1,6 +1,7 @@
 'use strict';
 
 const Student = require(constain.TABLE + '/studentTable');
+const Tesseract = require('tesseract.js');
 
 module.exports = {
     getAllStudents: async(req, res) => {
@@ -28,7 +29,29 @@ module.exports = {
             res.json(data);
         });
     },
-    helloStudent: async(req, res) => {
-        res.json('Hello');
+    scaneOCR: async(req, res) => {
+        Tesseract.recognize(
+            constain.IMG + '/sign_text.png',
+            'eng',
+            {
+                logger: m => console.log(m) 
+            }
+        ).then(({ data: { text } }) => {
+            console.log(text);
+            res.json(text);
+        })
     },
+    quickstart: async(req, res) => {
+        // Imports the Google Cloud client library
+        const vision = require('@google-cloud/vision');
+      
+        // Creates a client
+        const client = new vision.ImageAnnotatorClient();
+      
+        // Performs label detection on the image file
+        const [result] = await client.labelDetection(constain.IMG + '/sign_text.png');
+        const labels = result.labelAnnotations;
+        console.log('Labels:');
+        labels.forEach(label => console.log(label.description));
+    }
 }

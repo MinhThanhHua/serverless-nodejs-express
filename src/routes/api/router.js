@@ -26,5 +26,11 @@ module.exports = function(app) {
     app.route('/api/test')
         .get(Student.helloStudent);
 
+    app.route('/api/demo')
+        .get(Student.hiStudent);
+
     app.use('/api/line', lineRouter);
+
+    app.use('/api/scane', Student.scaneOCR);
+    app.use('/api/quickstart', Student.quickstart);
 }

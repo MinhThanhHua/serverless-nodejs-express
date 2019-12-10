@@ -1,4 +1,10 @@
 // freeze set data is const, user cann't change value on it
+// Check đường dẫn trên server, gán lại đường dẫn mới theo môi trường
+// trên aws sẽ là LAMBDA_ROOT = /var/task
+if (!process.env.PWD) {
+    process.env.PWD = process.env.LAMBDA_ROOT;
+}
+
 module.exports = Object.freeze({
     ENVIRONTMENT: process.env.MY_SECRET,
     ROOT: process.env.PWD,
