@@ -13,10 +13,12 @@
     "watch": "nodemon"
   },
   "dependencies": {
+    "@google-cloud/vision": "^1.7.2",
     "@line/bot-sdk": "^6.8.3",
     "aws-sdk": "^2.580.0",
     "babel-runtime": "^6.26.0",
     "cookie-parser": "^1.4.4",
+    "db-migrate-mysql": "^1.1.10",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "express-react-views": "^0.11.0",
@@ -31,6 +33,7 @@
     "rimraf": "^3.0.0",
     "serverless-aws-static-file-handler": "^2.0.2",
     "serverless-http": "^2.3.0",
+    "tesseract.js": "^2.0.0-beta.2",
     "watchman": "^1.0.0",
     "winston": "^3.2.1"
   },

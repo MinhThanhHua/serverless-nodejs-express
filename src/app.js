@@ -32,7 +32,7 @@ try {
     // Thiết lập engine view jade cho nodejs
     // app.set('views', __dirname + '/views');
     // app.set('view engine', 'jade');
-  
+    
     // Của lambda
     module.exports.server = serverless(app);
 
