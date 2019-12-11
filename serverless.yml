@@ -11,17 +11,17 @@ provider:
 plugins:
   - serverless-offline
 functions:
-  # test:
-  #   handler: src/app.server
-    # events: 
-      # - http: 
-      #     path: /
-      #     method: ANY
-      #     cors: false
-      # - http: 
-      #     path: /{proxy+}
-      #     method: ANY
-      #     cors: false
+  api:
+    handler: src/app.server
+    events: 
+      - http: 
+          path: /
+          method: ANY
+          cors: false
+      - http: 
+          path: /{proxy+}
+          method: ANY
+          cors: false
   # demo:
   #   handler: src/app.server
     # events: 

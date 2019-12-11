@@ -22,12 +22,6 @@ module.exports = function(app) {
         .get(Student.getStudent)
         .put(Student.editStudent)
         .delete(Student.deleteStudent);
-    
-    app.route('/api/test')
-        .get(Student.helloStudent);
-
-    app.route('/api/demo')
-        .get(Student.hiStudent);
 
     app.use('/api/line', lineRouter);
 

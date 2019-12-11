@@ -34,10 +34,10 @@ try {
     // app.set('view engine', 'jade');
     
     // Của lambda
-    module.exports.server = serverless(app);
+    // module.exports.server = serverless(app);
 
     // Của Express
-    // module.exports = app;
+    module.exports = app;
 
 } catch (error) {
     // Call exceptions.handle with a transport to handle exceptions

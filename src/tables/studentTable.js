@@ -14,13 +14,19 @@ var student = {
         })
     },
     addStudent: function(data, callback) {
-        return db.query('Insert into Student(name, class, dob) values(?, ?, ?)', [data.name, data.class, data.dob], callback)
+        return db.query('Insert into Student(name, class, phone_number, id_line) values(?, ?, ?, ?)', [data.name, data.class, data.phone_number, data.idLine], callback)
     },
     deleteStudent: function(req, callback) {
         return db.query('Delete from Student where id = ?', [req.params.studentId], callback)
     },
     updateStudent: function(req, callback) {
         return db.query('Update Student set name = ?, class = ?, dob = ? where id = ?', [req.body.name, req.body.class, req.body.dob, req.params.studentId], callback)
+    },
+    getStudentHasLineId: async function(callback) {
+        return db.query("Select * from Student where id_line != 'NULL'", function(err, result, fields) {
+            if (err) callback(err);
+            callback(result);
+        });
     }
 }
 
