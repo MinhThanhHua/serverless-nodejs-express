@@ -4,8 +4,9 @@
 const mysql = require('mysql');
 
 console.log('Get connection ...');
+
 // Get stage env
-if (constain.ENVIRONTMENT == 'dev') {
+if (constain.ENVIRONTMENT == 'dev' || process.env.NODE_ENV.trim() == 'dev') {
     // COnnect local
     try {
         var con = mysql.createPool({
@@ -14,7 +15,7 @@ if (constain.ENVIRONTMENT == 'dev') {
         password: '',
         database: 'nodejs_mysql',
         });
-    
+        
         con.getConnection(function(err) {
             if (err) {
                 console.log('Err: ' + err);
@@ -35,7 +36,7 @@ if (constain.ENVIRONTMENT == 'stg') {
         password : process.env.RDS_PASSWORD,
         port     : process.env.RDS_PORT,
         database :  process.env.RDS_DATABASE
-    });
+});
 
 // exports.handler = async (event) => {
 //     con.query("CREATE DATABASE nodejs_mysql", function (err, result) {

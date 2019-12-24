@@ -4,6 +4,9 @@
 if (!process.env.PWD) {
     process.env.PWD = process.env.LAMBDA_ROOT;
 }
+process.env.CSS = process.env.PWD + '/public/stylesheets';
+process.env.localDomain = 'http://localhost:3000';
+process.env.CONTROLLER = process.env.PWD + '/src/controller';
 
 module.exports = Object.freeze({
     ENVIRONTMENT: process.env.MY_SECRET,
@@ -20,4 +23,6 @@ module.exports = Object.freeze({
     }),
     USER_ID_SEND: 'Udeadbeefdeadbeefdeadbeefdeadbeef',
     IMG: process.env.PWD + '/public/images',
+    CSS: process.env.PWD + '/public/stylesheets',
+    JS: process.env.PWD + '/public/javascripts',
 });
