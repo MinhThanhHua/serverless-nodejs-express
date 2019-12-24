@@ -6,6 +6,7 @@ if (!process.env.PWD) {
 }
 process.env.CSS = process.env.PWD + '/public/stylesheets';
 process.env.localDomain = 'http://localhost:3000';
+process.env.CONTROLLER = process.env.PWD + '/src/controller';
 
 module.exports = Object.freeze({
     ENVIRONTMENT: process.env.MY_SECRET,
